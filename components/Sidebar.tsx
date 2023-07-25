@@ -11,7 +11,7 @@ import {
   ImageIcon,
   LayoutDashboardIcon,
   MessageSquareIcon,
-  Music2Icon,
+  MusicIcon,
   SettingsIcon,
   VideoIcon,
 } from 'lucide-react'
@@ -29,8 +29,8 @@ const routes = [
     color: 'text-sky-500',
   },
   {
-    label: 'Conservations',
-    href: '/conservation',
+    label: 'Conversations',
+    href: '/conversation',
     icon: MessageSquareIcon,
     color: 'text-violet-500',
   },
@@ -49,7 +49,7 @@ const routes = [
   {
     label: 'Music Generation',
     href: '/music',
-    icon: Music2Icon,
+    icon: MusicIcon,
     color: 'text-emerald-700',
   },
   {
