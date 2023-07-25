@@ -9,7 +9,9 @@ const Loader: FC<LoaderProps> = ({}) => {
       <div className='w-10 h-10 relative animate-spin'>
         <Image alt='logo' fill src='/logo.png' />
       </div>
-      <p className='text-sm text-muted-foreground'>MindSpark is loading...</p>
+      <p className='text-sm text-muted-foreground'>
+        MindSpark is processing...
+      </p>
     </div>
   )
 }

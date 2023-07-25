@@ -1,12 +1,11 @@
 'use client'
 
-import { MusicIcon } from 'lucide-react'
+import { VideoIcon } from 'lucide-react'
 import { FC, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import axios from 'axios'
-import { ChatCompletionRequestMessage } from 'openai'
 
 import Heading from '@/components/Heading'
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
@@ -18,11 +17,11 @@ import Empty from '@/components/Empty'
 import Loader from '@/components/Loader'
 import { cn } from '@/lib/utils'
 
-interface MusicPageProps {}
+interface VideoPageProps {}
 
-const MusicPage: FC<MusicPageProps> = ({}) => {
+const VideoPage: FC<VideoPageProps> = ({}) => {
   const router = useRouter()
-  const [music, setMusic] = useState<string>()
+  const [video, setVideo] = useState<string>()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -35,10 +34,10 @@ const MusicPage: FC<MusicPageProps> = ({}) => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      setMusic(undefined)
-      const res = await axios.post('/api/music', values)
+      setVideo(undefined)
+      const res = await axios.post('/api/video', values)
 
-      setMusic(res.data.audio)
+      setVideo(res.data[0])
 
       form.reset()
     } catch (error: any) {
@@ -51,11 +50,11 @@ const MusicPage: FC<MusicPageProps> = ({}) => {
   return (
     <div>
       <Heading
-        title='Music Generation'
-        description='Turn your prompt to music .'
-        icon={MusicIcon}
-        iconColor='text-emerald-700'
-        bgColor='bg-emerald-700/10'
+        title='Video Generation'
+        description='Turn your prompt to Video .'
+        icon={VideoIcon}
+        iconColor='text-orange-700'
+        bgColor='bg-orange-700/10'
       />
       <div className='px-4 lg:px-8'>
         <div>
@@ -72,7 +71,7 @@ const MusicPage: FC<MusicPageProps> = ({}) => {
                       <Input
                         className='border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent'
                         disabled={isLoading}
-                        placeholder='Guitar Solo'
+                        placeholder='Cat flying in the sky'
                         {...field}
                       />
                     </FormControl>
@@ -94,11 +93,14 @@ const MusicPage: FC<MusicPageProps> = ({}) => {
               <Loader />
             </div>
           )}
-          {!music && !isLoading && <Empty label='No Music Generated.' />}
-          {music && (
-            <audio controls className='w-full mt-8'>
-              <source src={music} />
-            </audio>
+          {!video && !isLoading && <Empty label='No video Generated.' />}
+          {video && (
+            <video
+              controls
+              className='w-full aspect-video mt-8 rounded-lg border'
+            >
+              <source src={video} />
+            </video>
           )}
         </div>
       </div>
@@ -106,4 +108,4 @@ const MusicPage: FC<MusicPageProps> = ({}) => {
   )
 }
 
-export default MusicPage
+export default VideoPage
