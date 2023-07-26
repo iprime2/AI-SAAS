@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { checkSubscription } from '@/lib/subscription'
 import Stripe from 'stripe'
 
 import { headers } from 'next/headers'

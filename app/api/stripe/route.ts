@@ -1,5 +1,6 @@
 import { auth, currentUser } from '@clerk/nextjs'
 import { NextResponse } from 'next/server'
+import { checkSubscription } from '@/lib/subscription'
 
 import prismadb from '@/lib/prismadb'
 import { stripe } from '@/lib/stripe'
