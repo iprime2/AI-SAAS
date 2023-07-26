@@ -9,6 +9,7 @@ import { MAX_FREE_COUNTS } from '@/constants'
 import { Card, CardContent } from './ui/card'
 import { Progress } from './ui/progress'
 import { Button } from './ui/button'
+import { useProModal } from '@/hooks/useProModal'
 
 interface FreeCounterProps {
   apiLimitCount: number
@@ -16,6 +17,7 @@ interface FreeCounterProps {
 
 const FreeCounter: FC<FreeCounterProps> = ({ apiLimitCount = 0 }) => {
   const [mounted, setMounted] = useState(false)
+  const proModal = useProModal()
 
   useEffect(() => {
     setMounted(true)
@@ -35,7 +37,11 @@ const FreeCounter: FC<FreeCounterProps> = ({ apiLimitCount = 0 }) => {
               className='h-3'
               value={(apiLimitCount / MAX_FREE_COUNTS) * 100}
             />
-            <Button variant='premium' className='w-full'>
+            <Button
+              variant='premium'
+              className='w-full'
+              onClick={proModal.onOpen}
+            >
               Upgrade
               <ZapIcon className='w-4 h-4 ml-2 fill-white' />
             </Button>

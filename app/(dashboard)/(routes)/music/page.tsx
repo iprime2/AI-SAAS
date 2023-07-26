@@ -16,13 +16,14 @@ import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 import Empty from '@/components/Empty'
 import Loader from '@/components/Loader'
-import { cn } from '@/lib/utils'
+import { useProModal } from '@/hooks/useProModal'
 
 interface MusicPageProps {}
 
 const MusicPage: FC<MusicPageProps> = ({}) => {
   const router = useRouter()
   const [music, setMusic] = useState<string>()
+  const proModal = useProModal()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -42,7 +43,11 @@ const MusicPage: FC<MusicPageProps> = ({}) => {
 
       form.reset()
     } catch (error: any) {
-      console.log(error)
+      if (error?.response?.status === 403) {
+        proModal.onOpen()
+      } else {
+        console.log(error)
+      }
     } finally {
       router.refresh()
     }

@@ -25,12 +25,14 @@ import {
 } from '@/components/ui/select'
 import { Card, CardFooter } from '@/components/ui/card'
 import Image from 'next/image'
+import { useProModal } from '@/hooks/useProModal'
 
 interface ImagePageProps {}
 
 const ImagePage: FC<ImagePageProps> = ({}) => {
   const router = useRouter()
   const [images, setImages] = useState<string[]>([])
+  const proModal = useProModal()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -53,7 +55,11 @@ const ImagePage: FC<ImagePageProps> = ({}) => {
       setImages(urls)
       form.reset()
     } catch (error: any) {
-      console.log(error)
+      if (error?.response?.status === 403) {
+        proModal.onOpen()
+      } else {
+        console.log(error)
+      }
     } finally {
       router.refresh()
     }
