@@ -41,13 +41,12 @@ const ConversationPage: FC<ConversationPageProps> = ({}) => {
         role: 'user',
         content: values.prompt,
       }
-      const newMessages = { ...messages, userMessage }
+      const newMessages = [...messages, userMessage]
 
-      const res = await axios.post('/api/conversation', {
+      const response = await axios.post('/api/conversation', {
         messages: newMessages,
       })
-
-      setMessages((current) => [...current, userMessage, res.data.messages])
+      setMessages((current) => [...current, userMessage, response.data])
 
       form.reset()
     } catch (error: any) {
@@ -106,12 +105,12 @@ const ConversationPage: FC<ConversationPageProps> = ({}) => {
           {messages.length === 0 && !isLoading && (
             <Empty label='No Conversation Started' />
           )}
-          <div className='flex flex-col-reverse gap-y-4'>
-            {messages.map((message, index) => (
+          <div className='flex flex-col gap-y-4'>
+            {messages.map((message) => (
               <div
                 key={message.content}
                 className={cn(
-                  'p-8 w-full flex items-center justify-center rounded-lg',
+                  'p-8 w-full flex items-start gap-x-8 rounded-lg',
                   message.role === 'user'
                     ? 'bg-white border border-black/10'
                     : 'bg-muted'
