@@ -1,9 +1,15 @@
-import { FC } from 'react'
+import { LandingContent } from '@/components/LandingContent'
+import { LandingHero } from '@/components/LandingHero'
+import { LandingNavbar } from '@/components/LandingNavbar'
 
-interface LandingPageProps {}
-
-const LandingPage: FC<LandingPageProps> = ({}) => {
-  return <div>LandingPage</div>
+const LandingPage = () => {
+  return (
+    <div className='h-full '>
+      <LandingNavbar />
+      <LandingHero />
+      <LandingContent />
+    </div>
+  )
 }
 
 export default LandingPage
