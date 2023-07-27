@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server'
-import { checkSubscription } from '@/lib/subscription'
 import Stripe from 'stripe'
 
 import { headers } from 'next/headers'
 import { stripe } from '@/lib/stripe'
 import prismadb from '@/lib/prismadb'
+
+export const dynamic = 'force-dynamic'
 
 export async function POST(req: Request) {
   const body = await req.text()
