@@ -9,9 +9,13 @@
 - Chat, Image, Music and video code prediction generator
 - I have used OpenAI APIs for chat, image, and code generation, and Replicate APIs for video and music generation
 - Free trial of up to 5 predictions on new account
-- Pro membership to access unlimited ai prediction
-- Responsive Web App with tailwind CSS
+- Pro membership to access unlimited ai predictions
 - I have added the crisp chat bot for customer support
+- Tailwind design
+- Tailwind animations and effects
+- Full responsiveness
+- Page loading state
+- Page empty state
 - Stripe checkout subscription
 - Stripe webhooks
 - MySQL + Prisma + PlanetScale
