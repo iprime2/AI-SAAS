@@ -16,6 +16,7 @@
 - Full responsiveness
 - Page loading state
 - Page empty state
+- Server error handling using react-toast
 - Stripe checkout subscription
 - Stripe webhooks
 - MySQL + Prisma + PlanetScale
