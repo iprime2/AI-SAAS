@@ -1,4 +1,4 @@
-# Full Stack AI SAAS with Next.js 13, Clerk, Stripe, App Router, React, Shadcn UI, Tailwind, Prisma, MySQL, Planet Scale, NextAuth 2023
+# Full Stack AI SAAS with Next.js 13, Clerk, Stripe, App Router, React, Crisp, Shadcn UI, Tailwind, Prisma, MySQL, Planet Scale, NextAuth 2023
 
 #### [https://sushil-ai.vercel.app](https://sushil-ai.vercel.app)
 
@@ -6,11 +6,12 @@
 
 - I have used Shadcn UI for the AI-SASS web app!
 - You will be able to log in using Clerk Authentication!
-- Chat, Image, Music and video code predictions generator
-- I have used OpenAI APIs for chat, image, code generation and Replicate APIs for video and music generation
-- free trail upto 5 predictions on new account
-- pro membership to access unlimited ai prediction
-- Responsive Web App with tailwind css
+- Chat, Image, Music and video code prediction generator
+- I have used OpenAI APIs for chat, image, and code generation, and Replicate APIs for video and music generation
+- Free trial of up to 5 predictions on new account
+- Pro membership to access unlimited ai prediction
+- Responsive Web App with tailwind CSS
+- I have added the crisp chat bot for customer support
 - Stripe checkout subscription
 - Stripe webhooks
 - MySQL + Prisma + PlanetScale
@@ -50,7 +51,6 @@ DATABASE_URL=
 STRIPE_API_KEY=
 NEXT_PUBLIC_APP_URL=
 STRIPE_WEBHOOK_SECRET=
-
 ```
  
 ### Setup Prisma
@@ -58,7 +58,6 @@ STRIPE_WEBHOOK_SECRET=
 ```shell
 npx prisma generate
 npx prisma db push
-
 ```
 
 ### Start the app
