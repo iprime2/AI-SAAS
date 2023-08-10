@@ -9,7 +9,7 @@ const UserAvatar: FC<UserAvatarProps> = ({}) => {
   const { user } = useUser()
 
   return (
-    <Avatar className='w-8 h-8'>
+    <Avatar className='w-10 h-10'>
       <AvatarImage src={user?.profileImageUrl} />
       <AvatarFallback>
         {user?.firstName?.charAt(0)}

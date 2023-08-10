@@ -5,7 +5,7 @@ interface BotAvatarProps {}
 
 const BotAvatar: FC<BotAvatarProps> = ({}) => {
   return (
-    <Avatar className='w-8 h-8'>
+    <Avatar className='w-10 h-10'>
       <AvatarImage src='/logo.png' />
     </Avatar>
   )
