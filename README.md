@@ -1,6 +1,6 @@
 # Full Stack AI SAAS with Next.js 13, Clerk, Stripe, App Router, Typescript, Crisp, Shadcn UI, Tailwind, Prisma, MySQL, Planet Scale, NextAuth 2023
 
-#### [https://sushil-ai.vercel.app](https://sushil-ai.vercel.app)
+#### https://sushil-ai-saas.vercel.app
 
 ### Features:
 
@@ -16,6 +16,7 @@
 - Full responsiveness
 - Page loading state
 - Page empty state
+- Server error handling using react-toast
 - Stripe checkout subscription
 - Stripe webhooks
 - MySQL + Prisma + PlanetScale
